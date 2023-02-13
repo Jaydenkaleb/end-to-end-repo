@@ -9,7 +9,7 @@ phases:
       - echo checking the python version
       - python3 --version
       - echo
-      - pip3 installing cfn-lint
+      - pip3 install cfn-lint
       - echo checking the cfn-lint version
       - cfn-lint --version
 
