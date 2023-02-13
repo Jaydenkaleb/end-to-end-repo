@@ -16,12 +16,14 @@ phases:
   build:
     commands:
       - echo testing our template
+      - cfn-lint us-eastTemplate.yml
       - echo Build started on `date`
-      - echo we are entering the build phase in the dev environment
+      - cloudformation package aws cloudformation package --template-file us-eastTemplate.yml --s3-bucket deploy-end-to-end-bucket --output-template-file artifactoutput.yml
   post_build:
     commands:
       - echo Build completed on `date`
       - ls -l
 artifacts:
   files:
-    - '**/*'
+    - us-eastTemplate.yml
+    - artifactoutput.yml
